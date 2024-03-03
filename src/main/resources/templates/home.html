@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>게시판</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5 mb-5">게시판</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 게시글 목록을 출력하는 부분. 서버로부터 데이터를 받아와 동적으로 생성해야 함 -->
+        <tr th:each="post : ${posts}" th:onclick="'window.location.href=\'/posts/readPost/' + ${post.id} + '\''">
+            <td th:text="${post.id}"></td>
+            <td th:text="${post.title}"></td>
+            <td th:text="${post.name}"></td>
+            <td th:text="${post.date}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary" onclick="location.href='/posts/new'">글쓰기</button>
+</div>
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -8,9 +8,10 @@ import jakarta.persistence.Id;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-
+@Entity
 public class Post {
 
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String name;

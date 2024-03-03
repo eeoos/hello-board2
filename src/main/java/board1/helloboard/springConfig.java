@@ -1,5 +1,6 @@
 package board1.helloboard;
 
+import board1.helloboard.repository.JpaPostRepository;
 import board1.helloboard.repository.MemoryPostRepository;
 import board1.helloboard.repository.PostRepository;
 import board1.helloboard.service.PostService;
@@ -14,8 +15,15 @@ import jakarta.persistence.EntityManager;
 public class springConfig {
 
 
-    @Bean
+    private final DataSource dataSource;
+    private final EntityManager em;
 
+    public springConfig(DataSource dataSource, EntityManager em) {
+        this.dataSource = dataSource;
+        this.em = em;
+    }
+
+    @Bean
     public PostService postService(){
         return new PostService(postRepository());
     }
@@ -23,6 +31,6 @@ public class springConfig {
     @Bean
     public PostRepository postRepository(){
 //        return new MemoryPostRepository();
-        return new MemoryPostRepository();
+        return new JpaPostRepository(em);
     }
 }

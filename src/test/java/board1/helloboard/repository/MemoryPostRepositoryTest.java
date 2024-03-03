@@ -58,7 +58,9 @@ class MemoryPostRepositoryTest {
 
         //then
         Post foundPost = repository.findById(updatePost.getId()).get();
-        assertThat(foundPost).isEqualTo(updatePost);
+        assertEquals(updatePost.getTitle(), foundPost.getTitle());
+        assertEquals(updatePost.getName(), foundPost.getName());
+        assertEquals(updatePost.getContent(), foundPost.getContent());
 
     }
 

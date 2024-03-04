@@ -1,9 +1,7 @@
 package board1.helloboard.service;
 
 import board1.helloboard.domain.Post;
-import board1.helloboard.repository.MemoryPostRepository;
 import board1.helloboard.repository.PostRepository;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -69,8 +67,8 @@ public class PostService {
         return post.getId();
     }
 
-    public void delete(Post post) { // 체크 필요
-        postRepository.remove(post);
+    public void remove(Post post) { // 체크 필요
+        postRepository.delete(post);
     }
 
 

@@ -1,7 +1,6 @@
 package board1.helloboard.repository;
 
 import board1.helloboard.domain.Post;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
@@ -73,7 +72,7 @@ class MemoryPostRepositoryTest {
 
         Post savedPost = repository.save(post);
 
-        repository.remove(savedPost);
+        repository.delete(savedPost);
     } // 체크 필요
     @Test
     public void findByName() {

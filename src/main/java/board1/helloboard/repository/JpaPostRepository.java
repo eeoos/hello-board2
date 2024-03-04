@@ -34,7 +34,7 @@ public class JpaPostRepository implements PostRepository {
 
 
     @Override
-    public void remove(Post post) {
+    public void delete(Post post) {
         em.remove(post);
     }
 

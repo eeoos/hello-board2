@@ -13,7 +13,7 @@ import jakarta.persistence.EntityManager;
 
 @Configuration
 public class springConfig {
-
+/*
 
     private final DataSource dataSource;
     private final EntityManager em;
@@ -32,5 +32,16 @@ public class springConfig {
     public PostRepository postRepository(){
 //        return new MemoryPostRepository();
         return new JpaPostRepository(em);
+    }*/
+
+    private final PostRepository postRepository;
+
+    public springConfig(PostRepository postRepository) {
+        this.postRepository = postRepository;
+    }
+
+    @Bean
+    public PostService postService() {
+        return new PostService(postRepository);
     }
 }

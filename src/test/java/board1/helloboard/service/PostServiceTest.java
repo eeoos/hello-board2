@@ -2,13 +2,9 @@ package board1.helloboard.service;
 
 import board1.helloboard.domain.Post;
 import board1.helloboard.repository.MemoryPostRepository;
-import board1.helloboard.repository.PostRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -148,7 +144,7 @@ class PostServiceTest {
         assertThat(post.getName()).isEqualTo(findPost.getName());
         assertThat(post.getContent()).isEqualTo(findPost.getContent());
 
-        postService.delete(post);
+        postService.remove(post);
     }
 
 

@@ -5,7 +5,6 @@ import board1.helloboard.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -70,7 +69,7 @@ public class PostController {
     @PostMapping("/posts/confirmDeletePost/{id}")
     public String delete(@PathVariable Long id) {
         Post post = postService.findOne(id).orElseThrow(() -> new IllegalArgumentException("해당 ID의 게시글이 존재하지 않습니다."));
-        postService.delete(post);
+        postService.remove(post);
         return "redirect:/";
     }
 

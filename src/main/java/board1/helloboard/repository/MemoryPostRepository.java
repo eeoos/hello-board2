@@ -39,7 +39,7 @@ public class MemoryPostRepository implements PostRepository {
     }
 
     @Override
-    public void remove(Post post) {
+    public void delete(Post post) {
         store.remove(post.getId());
     } // 체크 필요
 
